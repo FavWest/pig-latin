@@ -1,33 +1,79 @@
-Describe: vowelCounter();
+Describe: pigLatin()
 
-Test: "It recognizes a single vowel."
-Code: vowelCounter("a");
-Expected Output: 1
+Test: "It will add way to the end of a word beginning with a vowel."
+Code:
+const text = "all";
+pigLatin(text);
+Expected Output: "allway"
 
-Test: "It recognizes a single vowel regardless of case."
-Code: vowelCounter("A");
-Expected Output: 1
+Test: "It will add way to the end of a word beginning with a vowel, regardless of capitalization."
+Code:
+const text = "All";
+pigLatin(text);
+Expected Output: "Allway"
 
-Test: "It recognizes a single vowel in a word with multiple characters."
-Code: vowelCounter("cat");
-Expected Output: 1
+Test: "It will add a capitalized WAY to the end of a word beginning with a vowel if it is in all caps."
+Code:
+const text = "ALL";
+pigLatin(text);
+Expected Output: "ALLWAY"
 
-Test: "It recognizes multiple vowels in a single word."
-Code: vowelCounter("cater");
-Expected Output: 2
+Test: "It will add way to the end of multiple words beginning with a vowel."
+Code:
+const text = "all owls";
+pigLatin(text);
+Expected Output: "allway owlsway"
 
-Test: "It ignores non-alphabetical characters since they can't be vowels."
-Code: vowelCounter("*&$92%");
-Expected Output: 0
+Test: "It will add way to end of multiple words beginning with a vowel, but not to words beginning with a consonant."
+Code:
+const text = "all cats and owls";
+pigLatin(text);
+Expected Output: "allway cats andway owlsway";
 
-Test: "It recognizes vowels in a multiple-word sentence."
-Code: vowelCounter("cats catered the event");
-Expected Output: 7
+Test: "It will move the first letter to the end and add ay if the word starts with a consonant."
+Code:
+const text = "cats";
+pigLatin(text);
+Expected Output: "atscay"
 
-Test: "It recognizes vowels in a multiple word sentence regardless of capitalization."
-Code: vowelCounter("CATS CATERED THE EVENT");
-Expected Output: 7
+Test: "It will move the first letter to the end and add ay if the word starts with a consonant. If the first letter is capitalized and the subsequent letters are not, it will make the first letter lowercase it will capitalize the new first letter."
+Code:
+const text = "Cats"
+pigLatin(text);
+Expected Output: "Atscay"
 
-Test: "It recognizes all vowels in a multiple-word sentence regardless of inconsistent capitalization."
-Code: vowelCounter("CaTS CATEReD ThE EveNT");
-Expected Output: 7
+Test: "It will move the first letter to the end and add ay if the word starts with a consonant. If the word is in all caps, it will return all caps for that word."
+Code:
+const text = "CAT"
+pigLatin(text);
+Expected Output: "ATCAY"
+
+Test: "It will treat words starting with y as a consonant word."
+Code:
+const text = "yellow";
+pigLatin();
+Expected Output: "ellowyay"
+
+Test: "If the word starts with a consonant, it will move all the consonants at the beginning of the word to the end and add ay"
+Code:
+const text = "chats";
+pigLatin(text);
+Expected Output: "atschay"
+
+Test: "If the consonants at the beginning of the word contain "qu" move the u along with the consonants to the end of the word and add ay."
+Code:
+const text = "squirrel"
+pigLatin(text);
+Expected Output: "irrelsquay"
+
+Test: "Given multiple words, it will add way to the ends of all words beginning with a vowel. For words beginning with a consonant, it will move all the consonants at the beginning of a word to the end and add ay."
+Code:
+const text = "all cats and owls chat";
+pigLatin(text);
+Expected Output: "allway atscay andway owlsway atchay"
+
+Test: "Given multiple words, it will add way to the ends of all words beginning with a vowel. For words beginning with a consonant, it will move all the consonants at the beginning of a word to the end and add ay. It will maintain existing capitalizaiton of the beginning of the word or if the word is all caps."
+Code: 
+const text = "All CATS and OwLs chAT Together";
+pigLatin(text);
+Expected Output: "Allway ATSCAY andway OwLsway ATchay Ogethertay"
