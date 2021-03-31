@@ -18,11 +18,7 @@ const text = "all owls";
 pigLatin(text);
 Expected Output: "allway owlsway"
 
-Test: "It will add way to end of multiple words beginning with a vowel, but not to words beginning with a consonant."
-Code:
-const text = "all cats and owls";
-pigLatin(text);
-Expected Output: "allway cats andway owlsway";
+
 
 Test: "It will move the first letter to the end and add ay if the word starts with a consonant."
 Code:
