@@ -30,7 +30,7 @@ const text = "cats";
 pigLatin(text);
 Expected Output: "atscay"
 
-Test: "It will move the first letter to the end and add ay if the word starts with a consonant. If the first letter is capitalized and the subsequent letters are not, it will make the first letter lowercase it will capitalize the new first letter."
+Test: "It will move the first letter to the end and add ay if the word starts with a consonant. If the first letter is capitalized and the subsequent letters are not, it will make the first letter lowercase and it will capitalize the new first letter."
 Code:
 const text = "Cats"
 pigLatin(text);
