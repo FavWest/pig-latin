@@ -6,6 +6,12 @@ function isFirstLetterCapitalized(word) {
   return false;
 }
 
+function checkCapitalization(word) {
+  if(word.toUpperCase()=== word) {
+    
+  }
+}
+
 function pigLatin(text){
   const wordArray=text.split(" ");
   const vowels = "aeiou";
@@ -13,7 +19,7 @@ function pigLatin(text){
   wordArray.forEach(function(word, index){
     let firstLetter = word[0];
     if(vowels.includes(firstLetter)){
-      if(text.toUpperCase() === text) {
+      if(word.toUpperCase() === word) {
         pigLatinText += word+"WAY";
       } else {
         pigLatinText += word+"way";
@@ -21,6 +27,7 @@ function pigLatin(text){
     } else {
       if(isFirstLetterCapitalized(word)){
         let letterArray = word.split("");
+        //check for all caps
         letterArray[0] = letterArray[0].toLowerCase();
         letterArray[1] = letterArray[1].toUpperCase();
         word = letterArray.join("");
