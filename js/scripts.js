@@ -11,7 +11,10 @@ function pigLatin(text){
         pigLatinText += word+"way";
       }
     } else {
-      pigLatinText += word;
+      for(i=1; i<word.length; i++){
+        pigLatinText += word[i];
+      }
+      pigLatinText += word[0]+"ay";
     }
     if(index<wordArray.length-1){
         pigLatinText += " ";
@@ -23,5 +26,6 @@ function pigLatin(text){
 // const text = "all";
 // const text = "ALL";
 // const text = "all owls"
-const text = "all cats and owls";
+// const text = "all cats and owls";
+const text="cats";
 console.log(pigLatin(text));
