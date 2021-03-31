@@ -12,9 +12,9 @@ function translateConsonant(word, ending, pigLatinText) {
   let frontConsonants = [word[0]];
   let consonantEndIndex;
   for (index = 1; index < letterArray.length; index++) {//check if each letter is consonant
-    if (vowels.includes(letterArray[index].toLowerCase())) {
-      consonantEndIndex = index;
-      break;
+    if ((vowels.includes(letterArray[index].toLowerCase()))&&(letterArray[index-1].toLowerCase()!=="q" || letterArray[index].toLowerCase()!=="u")) {
+        consonantEndIndex = index;
+        break; 
     } else {
       frontConsonants.push(letterArray[index]);
     }
@@ -105,5 +105,10 @@ console.log(expected);
 
 text = "chats";
 expected = "atschay"
+console.log(pigLatin(text));
+console.log(expected);
+
+text = "squirrel";
+expected = "irrelsquay";
 console.log(pigLatin(text));
 console.log(expected);
