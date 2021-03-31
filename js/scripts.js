@@ -7,11 +7,28 @@ function isFirstLetterCapitalized(word) {
 }
 
 function translateConsonant(word, ending, pigLatinText) {
-  for(i=1; i<word.length; i++){
+  const vowels = "aeiouy";
+  let letterArray = word.split(""); //change word into an array
+  let frontConsonants = [word[0]];
+  let consonantEndIndex;
+  for (index = 1; index < letterArray.length; index++) {//check if each letter is consonant
+    if (vowels.includes(letterArray[index].toLowerCase())) {
+      consonantEndIndex = index;
+      break;
+    } else {
+      frontConsonants.push(letterArray[index]);
+    }
+  }
+  for(i=consonantEndIndex; i<word.length; i++){ //add rest of word first
     pigLatinText += word[i];
   }
-  pigLatinText += word[0]+ending;
+  pigLatinText += frontConsonants.join("") + ending; //add first consonants and ending
   return pigLatinText;
+}
+
+function getAllInitialConsonants(word) {
+  //check each letter until not a consonant
+  //return consonant set
 }
 
 function pigLatin(text){
@@ -78,5 +95,15 @@ console.log(expected);
 
 text = "CATS";
 expected = "ATSCAY";
+console.log(pigLatin(text));
+console.log(expected);
+
+text = "yellow";
+expected = "ellowyay";
+console.log(pigLatin(text));
+console.log(expected);
+
+text = "chats";
+expected = "atschay"
 console.log(pigLatin(text));
 console.log(expected);
