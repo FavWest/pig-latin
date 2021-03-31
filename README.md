@@ -6,12 +6,6 @@ const text = "all";
 pigLatin(text);
 Expected Output: "allway"
 
-Test: "It will add way to the end of a word beginning with a vowel, regardless of capitalization."
-Code:
-const text = "All";
-pigLatin(text);
-Expected Output: "Allway"
-
 Test: "It will add a capitalized WAY to the end of a word beginning with a vowel if it is in all caps."
 Code:
 const text = "ALL";
